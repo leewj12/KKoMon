@@ -1,0 +1,35 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.4.1'
+	id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'react.out'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web' // 웹 기능을 위한 의존성
+	compileOnly 'org.projectlombok:lombok' // Lombok 라이브러리 (코드 간소화)
+	developmentOnly 'org.springframework.boot:spring-boot-devtools' // 개발 편의 기능
+	runtimeOnly 'com.mysql:mysql-connector-j' //MySQL 드라이버
+	annotationProcessor 'org.projectlombok:lombok' //getter/setter 등을 자동으로 생성해주는 라이브러리
+	testImplementation 'org.springframework.boot:spring-boot-starter-test' // 테스트 의존성
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher' // JUnit 플랫폼 실행기
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'jakarta.servlet:jakarta.servlet-api'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

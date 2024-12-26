@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <!--====== Favicon Icon ======-->
+  <link rel="shortcut icon" href="images/favicon.png" type="image/png">
+
+  <!--====== Slick css ======-->
+  <link rel="stylesheet" href="css/slick.css">
+
+  <!--====== Animate css ======-->
+  <link rel="stylesheet" href="css/animate.css">
+
+  <!--====== Nice Select css ======-->
+  <link rel="stylesheet" href="css/nice-select.css">
+
+  <!--====== Nice Number css ======-->
+  <link rel="stylesheet" href="css/jquery.nice-number.min.css">
+
+  <!--====== Magnific Popup css ======-->
+  <link rel="stylesheet" href="css/magnific-popup.css">
+
+  <!--====== Bootstrap css ======-->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+  <!--====== Fontawesome css ======-->
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+
+  <!--====== Default css ======-->
+  <link rel="stylesheet" href="css/default.css">
+
+  <!--====== Style css ======-->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!--====== Responsive css ======-->
+  <link rel="stylesheet" href="css/responsive.css">
+
+</head>
+<body>
+
+<!--헤더-->
+<div th:insert="fragments/header :: header"></div>
+
+<main class="container mt-5">
+  <h1 class="text-center mb-4">마이페이지 대시보드</h1>
+
+  <div class="row">
+    <!-- 개인 정보 조회 / 수정 -->
+    <div class="col-md-6 mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h3 class="card-title">개인 정보 조회 / 수정</h3>
+          <p>이름: 홍길동</p>
+          <p>이메일: example@mail.com</p>
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#personalInfoModal">수정하기</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 수강 목록 -->
+    <div class="col-md-6 mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h3 class="card-title">수강 목록</h3>
+          <ul>
+            <li>Python 기초 강의</li>
+            <li>데이터 분석 국비 과정</li>
+            <li>HTML & CSS 강의</li>
+          </ul>
+          <button class="btn btn-primary">전체 목록 보기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- 과제/시험 제출 -->
+    <div class="col-md-6 mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h3 class="card-title">과제/시험 제출</h3>
+          <ul>
+            <li>Python 기초 과제 1 - 제출 완료</li>
+            <li>HTML 과제 - 미제출</li>
+          </ul>
+          <button class="btn btn-primary">제출하기</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 과제/시험 성적 조회 -->
+    <div class="col-md-6 mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h3 class="card-title">과제/시험 성적 조회</h3>
+          <canvas id="gradeChart"></canvas>
+          <button class="btn btn-primary">자세히 보기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- 리뷰 관리 -->
+    <div class="col-md-6 mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h3 class="card-title">리뷰 관리</h3>
+          <ul>
+            <li>Python 기초 강의 - ★★★★☆</li>
+            <li>데이터 분석 국비 과정 - ★★★★★</li>
+          </ul>
+          <button class="btn btn-primary">리뷰 보기</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 결제 내역 -->
+    <div class="col-md-6 mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h3 class="card-title">결제 내역</h3>
+          <ul>
+            <li>Python 기초 강의 - 50,000원</li>
+            <li>HTML & CSS 강의 - 30,000원</li>
+          </ul>
+          <button class="btn btn-primary">전체 내역 보기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- 개인 정보 수정 모달 -->
+<div class="modal fade" id="personalInfoModal" tabindex="-1" aria-labelledby="personalInfoModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="personalInfoModalLabel">개인 정보 수정</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="nameInput" class="form-label">이름</label>
+            <input type="text" class="form-control" id="nameInput" value="홍길동">
+          </div>
+          <div class="mb-3">
+            <label for="emailInput" class="form-label">이메일</label>
+            <input type="email" class="form-control" id="emailInput" value="example@mail.com">
+          </div>
+          <button type="submit" class="btn btn-primary">저장하기</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--푸터-->
+<div th:insert="fragments/footer :: footer"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctx = document.getElementById('gradeChart').getContext('2d');
+  const gradeChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+          labels: ['Python 기초', 'HTML', 'CSS', 'JavaScript'],
+          datasets: [{
+              label: '성적',
+              data: [85, 90, 75, 80],
+              backgroundColor: 'rgba(54, 162, 235, 0.5)',
+              borderColor: 'rgba(54, 162, 235, 1)',
+              borderWidth: 1
+          }]
+      },
+      options: {
+          scales: {
+              y: {
+                  beginAtZero: true
+              }
+          }
+      }
+  });
+</script>
+
+<!-- Vendor JS Files -->
+<script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/chart.js/chart.umd.js"></script>
+<script src="assets/vendor/echarts/echarts.min.js"></script>
+<script src="assets/vendor/quill/quill.js"></script>
+<script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+<script src="assets/vendor/tinymce/tinymce.min.js"></script>
+<script src="assets/vendor/php-email-form/validate.js"></script>
+
+<!-- Template Main JS File -->
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>

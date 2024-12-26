@@ -1,0 +1,38 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: spring-jpa-ajax
+  datasource:
+    url: jdbc:mysql://localhost:3306/komon
+    username: root
+    password: mysql904#
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: true # 코드 수정 시 자동으로 서버를 재시작하도록 설정
+      additional-paths: src/main/resources/static, src/main/resources/templates # 정적 파일 경로 추가
+
+  jpa:
+    hibernate:
+      ddl-auto: update #개발 중에는 update 나 create, 배포시에는 none 으로 권장
+      show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+  logging:
+    level:
+      org.hibernate.SQL: debug
+      org.hibernate.type: trace
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 100MB
+      max-request-size: 100MB

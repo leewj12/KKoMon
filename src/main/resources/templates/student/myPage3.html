@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <!--====== Favicon Icon ======-->
+  <link rel="shortcut icon" href="images/favicon.png" type="image/png">
+
+  <!--====== Slick css ======-->
+  <link rel="stylesheet" href="css/slick.css">
+
+  <!--====== Animate css ======-->
+  <link rel="stylesheet" href="css/animate.css">
+
+  <!--====== Nice Select css ======-->
+  <link rel="stylesheet" href="css/nice-select.css">
+
+  <!--====== Nice Number css ======-->
+  <link rel="stylesheet" href="css/jquery.nice-number.min.css">
+
+  <!--====== Magnific Popup css ======-->
+  <link rel="stylesheet" href="css/magnific-popup.css">
+
+  <!--====== Bootstrap css ======-->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+  <!--====== Fontawesome css ======-->
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+
+  <!--====== Default css ======-->
+  <link rel="stylesheet" href="css/default.css">
+
+  <!--====== Style css ======-->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!--====== Responsive css ======-->
+  <link rel="stylesheet" href="css/responsive.css">
+
+</head>
+<body>
+
+<!--헤더-->
+<div th:insert="fragments/header :: header"></div>
+
+<!-- 마이페이지 콘텐츠 -->
+<main class="container mt-5">
+  <h1 class="text-center mb-4">마이페이지 대시보드</h1>
+
+  <div class="row">
+    <!-- 개인 정보 조회 / 수정 -->
+    <div class="col-md-6 mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h3 class="card-title">개인 정보 조회 / 수정</h3>
+          <p>회원 정보를 확인하고 수정하세요.</p>
+          <a href="#" class="btn btn-primary">수정하기</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 수강 목록 -->
+    <div class="col-md-6 mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h3 class="card-title">수강 목록</h3>
+          <p>현재 수강 중인 강의와 국비 과정을 확인하세요.</p>
+          <a href="#" class="btn btn-primary">수강 목록 보기</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- 과제/시험 제출 -->
+    <div class="col-md-6 mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h3 class="card-title">과제/시험 제출</h3>
+          <p>과제와 시험을 제출하세요.</p>
+          <a href="#" class="btn btn-primary">제출하기</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 과제/시험 성적 조회 -->
+    <div class="col-md-6 mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h3 class="card-title">과제/시험 성적 조회</h3>
+          <p>제출한 과제와 시험 성적을 확인하세요.</p>
+          <a href="#" class="btn btn-primary">성적 조회</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- 리뷰 관리 -->
+    <div class="col-md-6 mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h3 class="card-title">리뷰 관리</h3>
+          <p>강의 리뷰를 확인하고 관리하세요.</p>
+          <a href="#" class="btn btn-primary">리뷰 보기</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 결제 내역 -->
+    <div class="col-md-6 mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h3 class="card-title">결제 내역</h3>
+          <p>구매 내역과 결제 정보를 확인하세요.</p>
+          <a href="#" class="btn btn-primary">결제 내역 보기</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!--푸터-->
+<div th:insert="fragments/footer :: footer"></div>
+
+<!-- Vendor JS Files -->
+<script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/chart.js/chart.umd.js"></script>
+<script src="assets/vendor/echarts/echarts.min.js"></script>
+<script src="assets/vendor/quill/quill.js"></script>
+<script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+<script src="assets/vendor/tinymce/tinymce.min.js"></script>
+<script src="assets/vendor/php-email-form/validate.js"></script>
+
+<!-- Template Main JS File -->
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>
